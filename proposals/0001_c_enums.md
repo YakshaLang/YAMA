@@ -112,7 +112,7 @@ TWO: Const[int] = nativexp """1 + 1"""
 This would compile to 
 
 ```c
-#define yk__TWO 1 + 1
+#define yk__TWO (1 + 1)
 ```
 
 ## Conclusion
