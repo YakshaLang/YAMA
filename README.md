@@ -1,2 +1,2 @@
 # YAMA
-Yaksha Additional Mechanisms Applications
+Yaksha Additional (Mechanisms|Methods) (Applications|Article)
