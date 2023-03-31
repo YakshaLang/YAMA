@@ -49,8 +49,8 @@ def something() -> int:
 
 This does not copy the value, but make it annoying to use the API as now we need to access this as `something()`.
 
-
-## Suggestion 1
+## Suggestions
+### Suggestion 1
 
 ```python
 # Expose enum value / #define value
