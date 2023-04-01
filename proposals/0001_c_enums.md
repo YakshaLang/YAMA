@@ -1,6 +1,7 @@
 # YAMA 0001 - Exposing C enums/#defines/consts
 
 - Author(s): Bhathiya Perera
+- Status   : ✅
 
 ## Problem
 
