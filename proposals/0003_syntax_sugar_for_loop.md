@@ -1,0 +1,132 @@
+# YAMA 0002 - For loop / loop
+
+- Author(s): Bhathiya Perera
+- Status   : Draft
+
+<!-- different languages for code blocks are used to get maximum syntax matching for free, please ignore -->
+
+## Problem
+
+Yaksha programming language does not offer a `for` syntax sugar. This is annoying for someone coming from Python or other languages that has this feature. 
+We have `foreach` builtin and `while` loop, which can be used at the moment. `for` can make certain things easy.
+
+
+### Use case 1 - for each element in array ✅
+
+How it works now
+```python
+items: Array[int] = get_it()
+
+c: int = 0
+length: int = len(items)
+
+while c < length:
+    if items[c] == 2:
+        c += 1 
+        continue
+    println(items[c])
+    c += 1
+```
+
+Syntax sugar (we will keep compulsory data types for now)
+
+```python
+for item: int in get_it(): # get_it should return Array[T]
+    if item == 2:
+        continue
+    println(item)
+```
+
+Desugared 
+
+```python
+hidden__items: Array[int] = get_it()
+hidden__c: int = 0
+hidden__length: int = len(items)
+
+while hidden__c < hidden__length:
+    item: int = hidden__items[hidden__c] # Access element first
+    if item == 2:
+        hidden__c += 1
+        continue                 # Continue must increase the counter
+    println(item)
+    hidden__c += 1               # Increase count at the very end
+```
+
+
+### Use case 2 - endless loops ✅
+
+Syntax sugar
+
+```python
+for:
+    game_step()
+    log_stuff()
+```
+
+Desugared
+
+```python
+while True:
+    game_step()
+    log_stuff()
+```
+
+### Use case 3 - custom iterators / iterables ⚠️(deferred at this step)
+
+Syntax sugar
+
+```python
+def next_book(x: Books) -> Book:
+    pass
+  
+def has_next_book(x: Books) -> bool:
+    pass
+
+def process() -> None:
+    books: Books = get_it()
+    it: Iterator[Book] = iterator("Book", books, next_book, has_next_book)
+    for element: Book in it:
+        print_book(element)
+```
+
+### Use case 4 - range for loops ✅
+
+Syntax sugar
+
+```python
+# Example 1
+r: Range[int] = range(1, 5, 2)
+for i: int in r:
+    if i == 1: # do not print 1
+       continue
+    println(i)
+
+# Example 2
+for i: int in range(1, 5, 2):
+    if i == 1: # do not print 1
+       continue
+    println(i)
+```
+
+Desugared
+
+```python
+r: Tuple[int, int, int]
+r[0] = 1
+r[1] = 5
+r[2] = 2
+
+hidden__c = r[0]
+while hidden__c < r[1]:
+    i: int = hidden__c
+    if i == 1:
+        hidden__c += r[2]
+        continue
+    println(i)
+    hidden__c += r[2]
+```
+
+## Conclusion
+
+Iterators are deferred for now. Above are valid use cases and additionally these new syntax sugars can help avoid mistakes with `while` loops.
