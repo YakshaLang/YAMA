@@ -1,7 +1,7 @@
 # YAMA 0002 - Adding support for stack allocated structs
 
 - Author(s): Bhathiya Perera
-- Status   : Approved
+- Status   : ✅
 
 ## Problem
 
