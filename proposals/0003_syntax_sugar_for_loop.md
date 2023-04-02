@@ -90,7 +90,7 @@ def process() -> None:
         print_book(element)
 ```
 
-### Use case 4 - range for loops ✅
+### Use case 4 - range for loops ⚠️(deferred at this step)
 
 Syntax sugar
 
@@ -129,4 +129,6 @@ while hidden__c < r[1]:
 
 ## Conclusion
 
-Iterators are deferred for now. Above are valid use cases and additionally these new syntax sugars can help avoid mistakes with `while` loops.
+Iterators/Ranges are deferred for now. It would be better to come up with a generic `Iterator` approach for these.
+
+At the moment I thionk endless loops and simple foreach style loops should be implemented.
