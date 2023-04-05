@@ -40,17 +40,19 @@ for item: int in get_it(): # get_it should return Array[T]
 Desugared 
 
 ```python
-hidden__items: Array[int] = get_it()
-hidden__c: int = 0
-hidden__length: int = len(items)
+yy__1t: Array[int] = get_it()
+yy__2t: int = 0
+yy__3t: int = len(yk__1t)
 
-while hidden__c < hidden__length:
-    item: int = hidden__items[hidden__c] # Access element first
+while yy__2t < yy__3t:
+    ccode """#define yy__item yy__1t[yy__2t]\n// desugar begin"""
+    expose_native item: int      # To expose what we put in above C code
     if item == 2:
-        hidden__c += 1
+        yy__2t += 1
         continue                 # Continue must increase the counter
     println(item)
-    hidden__c += 1               # Increase count at the very end
+    ccode """#undef yy__item\n// desugar end"""
+    yy__2t += 1               # Increase count at the very end
 ```
 
 
