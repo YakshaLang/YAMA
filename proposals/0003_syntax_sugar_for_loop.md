@@ -1,7 +1,7 @@
-# YAMA 0002 - For loop / loop
+# YAMA 0003 - For loop / loop
 
 - Author(s): Bhathiya Perera
-- Status   : Draft
+- Status   : ✅
 
 <!-- different languages for code blocks are used to get maximum syntax matching for free, please ignore -->
 
