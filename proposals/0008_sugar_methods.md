@@ -6,8 +6,7 @@
 ## Idea 01 - Arrow
 
 ```python
-@onstack
-class Banana:
+struct Banana:
     color: int
     origin: int
     
@@ -37,8 +36,7 @@ def main() -> int:
     return 0
 ```
 
-if not `@onstack` then it can just use the data type, otherwise it is Ptr.
-
+If `@onstack` or `struct` then we need to use `Ptr[DataType]` otherwise `DataType` can be used. 
 Going with `.` as it is already valid AST. Additionally, we can find the method during `type checking` and desugar it.
 
 ```python

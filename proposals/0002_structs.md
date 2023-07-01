@@ -97,3 +97,7 @@ Enemy() # This is disallowed. Just create a variable and you can use it.
 ## Conclusion
 
 I am thinking suggestion 4 is the best approach.
+
+## Update
+
+Additionally Yaksha now supports `struct` keyword. That act as a syntax sugar for `@onstack class`.
